@@ -20,13 +20,13 @@ class CarService {
 
   public async getCars() {
     const cars = await this.CarModel.getAll();
-    return cars as ICar[];
+    return cars.map((car) => new Car(car));
   }
 
   public async getCarById(id: string) {
     const car = await this.CarModel.getById(id);
     if (!car) throw new ApiError(404, 'Car not found');
-    return car;
+    return new Car(car);
   }
 }
 
