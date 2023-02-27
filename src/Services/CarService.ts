@@ -20,19 +20,19 @@ class CarService {
 
   public async getCars() {
     const cars = await this.CarModel.getAll();
-    return cars.map((car) => new Car(car));
+    return cars.map((car) => this.createCarDomain(car));
   }
 
   public async getCarById(id: string) {
     const car = await this.CarModel.getById(id);
     if (!car) throw new ApiError(404, 'Car not found');
-    return new Car(car);
+    return this.createCarDomain(car);
   }
 
   public async updateCar(id: string, car:ICar) {
     const updatedCar = await this.CarModel.updateById(id, car);
     if (!updatedCar) throw new ApiError(404, 'Car not found');
-    return new Car(updatedCar);
+    return this.createCarDomain(updatedCar);
   }
 }
 
