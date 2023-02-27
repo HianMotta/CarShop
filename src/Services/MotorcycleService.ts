@@ -28,6 +28,12 @@ class MotorcycleService {
     if (!motorcycle) throw new ApiError(404, 'Motorcycle not found');
     return this.createMotorcycleDomain(motorcycle);
   }
+
+  public async updateMotorcycle(id: string, mc: IMotorcycle) {
+    const updatedMotorcycle = await this.MotorcycleModel.updateById(id, mc);
+    if (!updatedMotorcycle) throw new ApiError(404, 'Motorcycle not found');
+    return this.createMotorcycleDomain(updatedMotorcycle);
+  }
 }
 
 export default MotorcycleService;

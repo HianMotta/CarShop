@@ -43,6 +43,17 @@ class MotorcycleController {
       this.next(error);
     }
   }
+
+  public async updateMotorcycle() {
+    try {
+      const { id } = this.req.params;
+      const motorcycle = this.req.body;
+      const updatedMotorcycle = await this.service.updateMotorcycle(id, motorcycle);
+      return this.res.status(200).json(updatedMotorcycle);
+    } catch (error) {
+      this.next(error);
+    }
+  }
 }
 
 export default MotorcycleController;
