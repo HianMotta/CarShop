@@ -22,7 +22,7 @@ export const motorcycleOutput: IMotorcycle = {
 };
 
 export const update: IMotorcycle = {
-  model: 'Honda Cb 600f Hornet',
+  model: 'Biz',
   year: 2015,
   color: 'Yellow',
   status: true,
@@ -33,7 +33,7 @@ export const update: IMotorcycle = {
 
 export const updatedMotorcycle: IMotorcycle = {
   id: '6348513f34c397abcad040b2',
-  model: 'Honda Cb 600f Hornet',
+  model: 'Biz',
   year: 2015,
   color: 'Yellow',
   status: true,
