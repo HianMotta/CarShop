@@ -28,6 +28,12 @@ class CarService {
     if (!car) throw new ApiError(404, 'Car not found');
     return new Car(car);
   }
+
+  public async updateCar(id: string, car:ICar) {
+    const updatedCar = await this.CarModel.updateById(id, car);
+    if (!updatedCar) throw new ApiError(404, 'Car not found');
+    return new Car(updatedCar);
+  }
 }
 
 export default CarService;
